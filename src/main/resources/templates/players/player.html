@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/lib/bootstrap/dist/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/site.css}" />
+</head>
+<body>
+<div th:replace="shared/layout :: header"></div>
+<div class="jumbotron p-2">
+    <h1 class="display-4">
+        <img th:src="@{'/image/nfl/logo/' + ${player.getTeamId()} +'.png'}" alt="player id">
+        <em th:text="${player.getNumber()}"></em>
+        <em th:text="${player.getName()}"></em>
+    </h1>
+</div>
+
+<div th:object="${player}">
+    <div>
+        <p th:text="*{getPosition()}"></p>
+    </div>
+    <hr>
+    <div>
+        Rating: <span th:text="*{getRating()}"></span>
+    </div>
+    <div>
+        Rank: <span th:text="*{getRank()}"></span>
+    </div>
+    <div>
+        Depth: <span th:text="*{getDepth()}"></span>
+    </div>
+    <hr>
+    <div>
+        Experience: <span th:text="*{getExperience()}"></span>
+    </div>
+    <div>
+        College: <span th:text="*{getCollege()}"></span>
+    </div>
+    <div>
+        Experience: <span th:text="*{getDraftYear()}"></span> - <span th:text="*{getDraftRound()}"></span> - <span th:text="*{getDraftPick()}"></span>
+    </div>
+    <hr>
+    <div>
+        Height: <span th:text="*{getHeight()}"></span>
+    </div>
+    <div>
+        Weight: <span th:text="*{getWeight()}"></span>
+    </div>
+    <div>
+        Age: <span th:text="*{getAge()}"></span>
+    </div>
+    <div>
+        BirthDay: <span th:text="*{getBirthDate()}"></span>
+    </div>
+</div>
+
+<div th:replace="/shared/layout :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" th:href="@{/lib/bootstrap/dist/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+</head>
+<body>
+<h1>Variable Expression Demo:</h1>
+<h2>User Details:</h2>
+<div>
+    <p class="">Name: <strong th:text="${user.getName()}"></strong> </p>
+    <p>Email: <strong th:text="${user.getEmail()}"></strong> </p>
+    <p>Role: <strong th:text="${user.getRole()}"></strong> </p>
+    <p>Gender: <strong th:text="${user.getGender()}"></strong> </p>
+</div>
+<a th:href="@{/variable-expression.html}">variable expression</a>
+
+<div>
+    <h1>Fragment expressions demo</h1>
+    <div th:replace="~{common/header :: header}"></div>
+    <div th:>
+        <h1>Page body</h1>
+    </div>
+    <div th:replace="~{common/footer :: footer}"></div>
+</div>
+</body>
+</html>

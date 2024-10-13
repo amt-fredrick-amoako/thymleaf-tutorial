@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" th:href="@{/lib/bootstrap/dist/css/bootstrap.min.css}" />
+    <link rel="stylesheet" th:href="@{/css/site.css}" />
+</head>
+<body>
+<div th:replace="shared/layout :: header"></div>
+<div class="jumbotron p-2 text-center">
+    <h2 class="display-3" >
+        <img th:src="@{'/image/' + ${home.leagueId} + '/' + ${home.leagueId} + '.png'}" alt="League Image">
+        <em th:text="${home.getName()}"></em>
+    </h2>
+</div>
+<div th:replace="/shared/layout :: footer"></div>
+</body>
+</html>
